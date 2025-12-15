@@ -81,7 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int? _idPerfil;
   String? _especialidades = '0';
   int? _extComunidades;
-  String? _currentVersion;
 
   @override
   void initState() {
@@ -112,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String apiUrl = '${UrlGlobales.UrlBase}version-app';
     try {
       final response = await http.post(Uri.parse(apiUrl), body: {
-        'Version': _currentVersion.toString(),
+        'Version': currentVersion,
         'Dispositivo': 'Android'
       });
       final responseBody = json.decode(response.body);
